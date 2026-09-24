@@ -32,6 +32,7 @@ export function evaluateWeek(student: Student, wk: Week) {
   return { signals, changedCount, level };
 }
 
-export function triggerWeek(student: Student): number {
-  return student.weeks.find((wk) => evaluateWeek(student, wk).level === "checkin")?.week ?? 4;
+// First week the change-detection rule actually fires, or null if it never does.
+export function triggerWeek(student: Student): number | null {
+  return student.weeks.find((wk) => evaluateWeek(student, wk).level === "checkin")?.week ?? null;
 }

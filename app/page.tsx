@@ -55,14 +55,14 @@ export default function Home() {
       r = fallbackInterpret(text);
     }
     setResult(r);
-    setSelected([r.route_to]);
+    setSelected([]); // nothing pre-selected: the student chooses
     setLoading(false);
     go(3);
   }
 
   return (
     <>
-      <StudentHeader student={student} onSelect={selectStudent} step={step} onStep={go} />
+      <StudentHeader student={student} step={step} onStep={go} />
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6">
         {step === 0 && (
           <JourneyTimeline student={student} onSelect={selectStudent} week={week} setWeek={setWeek} onCheckIn={() => go(1)} />
@@ -113,9 +113,8 @@ export default function Home() {
           />
         )}
       </main>
-      <footer className="border-t border-slate-200 py-4 text-center text-xs text-slate-500">
-        Prototype simulation for ServiceNow Co-Innovation Day · Track 2: Early Warning · Fictional students, illustrative
-        data. Not a predictive or diagnostic tool.
+      <footer className="border-t border-slate-200 py-4 text-center text-xs text-slate-400">
+        Prototype simulation · ServiceNow Co-Innovation Day, Track 2 · Fictional students, illustrative data
       </footer>
     </>
   );

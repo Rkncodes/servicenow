@@ -25,7 +25,6 @@ export type Student = {
   year: string;
   course: string;
   headline: string;
-  gradient: string;
   advisor: { name: string; role: string };
   advisorDefaultSuggestion: string;
   advisorDefaultNote: string;
@@ -61,7 +60,6 @@ const arjun: Student = {
   year: "3rd Year Student",
   course: "B.Tech Mechanical Engineering",
   headline: "Falling behind in core modules",
-  gradient: "from-sky-500 to-indigo-500",
   advisor: { name: "Prof. S. Kumar", role: "Faculty Advisor" },
   advisorDefaultSuggestion: "Senior Student Mentor",
   advisorDefaultNote: "Thermo II is a tough module for a lot of people. Happy to chat after class if it helps.",
@@ -72,7 +70,7 @@ const arjun: Student = {
     lms,
   ],
   required: 3,
-  triggerLabel: "Meaningful change from Arjun's usual pattern: notify advisor",
+  triggerLabel: "Change detected",
   weeks: [
     w(1, [92, 100, 78, 100], aKeys, "Starts 3rd year with a heavier load of core modules."),
     w(2, [90, 100, 74, 96], aKeys, "Finds Thermodynamics II much harder than expected."),
@@ -103,13 +101,12 @@ const priya: Student = {
   year: "2nd Year Student",
   course: "B.Sc Biotechnology",
   headline: "Balancing rent, work and study",
-  gradient: "from-indigo-500 to-violet-500",
   advisor: { name: "Prof. Anita Rao", role: "Faculty Advisor" },
   advisorDefaultSuggestion: "Student Support Team",
   advisorDefaultNote: "Just wanted you to know the support team is really approachable, whatever is going on.",
   signals: [attendance, submissions, lms, pulse],
   required: 3,
-  triggerLabel: "Meaningful change from Priya's usual pattern: notify advisor",
+  triggerLabel: "Change detected",
   weeks: [
     w(1, [95, 100, 100, 4], bKeys, "Settled into second year. Working 12 hours a week at a café alongside classes."),
     w(2, [90, 100, 95, 4], bKeys, "Missed a lecture to cover a colleague's shift. Nothing unusual."),
@@ -140,7 +137,6 @@ const kavya: Student = {
   year: "1st Year Student",
   course: "B.Tech Computer Science",
   headline: "Keen on hackathons, but unsure where to start",
-  gradient: "from-emerald-500 to-teal-500",
   advisor: { name: "Prof. R. Iyer", role: "Faculty Advisor" },
   advisorDefaultSuggestion: "Hackathon & Coding Community",
   advisorDefaultNote: "Saw you at the Git workshop. There are some great student teams you might enjoy.",
@@ -151,7 +147,7 @@ const kavya: Student = {
     { key: "connected", label: "Pulse: \"I know who to ask about opportunities\"", unit: "/5", threshold: 1, direction: "drop", max: 5, source: "Voluntary weekly pulse" },
   ],
   required: 2,
-  triggerLabel: "Opportunity moment: strong interest, no connection yet. Notify advisor",
+  triggerLabel: "Opportunity moment",
   weeks: [
     w(1, [95, 100, 0, 3], cKeys, "First semester of CS. Enjoying programming more than she expected."),
     w(2, [96, 100, 1, 3], cKeys, "Goes to an 'Intro to Git' workshop and loves it."),
